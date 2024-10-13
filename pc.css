@@ -9,7 +9,7 @@
     left: 80px;
     right: auto;
 }
-.battle-menu div {
+.battle-menu button {
     background-color: darkgray;
     border: 2px solid black;
     width: 50px;
@@ -19,10 +19,14 @@
     align-items: center;
     position: relative;
 }
-.battle-menu div:hover {
+.battle-menu button:hover {
     cursor: pointer;
+    background-color: aquamarine;
 }
-.battle-menu div::before {
+.battle-menu button:focus {
+    background-color: aqua;
+}
+.battle-menu button::before {
     content: '';
     position: absolute;
     top: 0;
@@ -31,7 +35,7 @@
     left: 0;
     background-image: linear-gradient(110deg, rgba(0,0,0,0), rgba(0,0,0,0.5));
 }
-.battle-menu div span {
+.battle-menu button span {
     text-align: center;
     rotate: -45deg;
 }
