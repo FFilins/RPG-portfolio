@@ -1,13 +1,14 @@
+/* BASE */
  .battle-menu {
     display: grid;
     grid-template-columns: repeat(2, 50px);
     grid-template-rows: repeat(2, 50px);
-    transform: rotate(45deg);
     position: absolute;
     top: auto;
-    bottom: 100px;
-    left: 80px;
+    bottom: 90px;
+    left: 60px;
     right: auto;
+    transform: rotate(45deg);
 }
 .battle-menu button {
     background-color: darkgray;
@@ -23,7 +24,7 @@
     cursor: pointer;
     background-color: aquamarine;
 }
-.battle-menu button:focus {
+.battle-menu button:focus, .battle-menu > div:focus-within {
     background-color: aqua;
 }
 .battle-menu button::before {
@@ -38,4 +39,97 @@
 .battle-menu button span {
     text-align: center;
     rotate: -45deg;
+    font-family: fantasy;
+}
+.sub-content {
+    width: 50px;
+    height: 50px;
+    rotate: -45deg;
+    display: block;
+    z-index: -1;
+    position: absolute;
+    left:  50px;
+    background-color: #0000!important;
+}
+
+/* Logica de aparecer as tabelas */
+.battle-menu button:focus {
+    display: flex;
+    animation: rotate(0deg) 1seg ease-in-out;
+}
+.content {
+    border: 3px solid darkblue;
+    background-color: dodgerblue;
+    z-index: 1;
+    overflow: hidden;
+    position: absolute;
+    left: 75px;
+    bottom: 0;
+    top: -100px;
+    right: 0;
+    animation:  content-appears 2s forwards ease-in-out;
+    text-wrap: nowrap;
+}
+@keyframes content-appears {
+    0% {
+        width: 0;
+        height: 0;
+        border: 3px solid darkblue;
+        background-color: dodgerblue;
+    }
+    100% {
+        height: 250px;
+        width: 300px;
+        min-width: 100px;
+        max-width: 400px;
+    }
+}
+.content > div, .content > div:focus-within {
+    display: none;
+    height: 100%;
+    width: 100%;
+}
+.battle-menu #web:focus ~ div #web-content, #web-content:focus-within, #web-content:active {
+    display: block;
+}
+.battle-menu #game:focus ~ div #game-content, #game-content:focus-within, #game-content:active {
+    display: block;
+}
+.battle-menu #social:focus ~ div #social-content, #social-content:focus-within, #social-content:active {
+    display: block;
+}
+.battle-menu #about-me:focus ~ div #about-me-content, #about-me-content:focus-within, #about-me-content:active {
+    display: block;
+}
+
+/* Content Styles */
+.content > div ul li {
+    list-style: none;
+    padding: 5px;
+}
+.content > div ul li a {
+    text-decoration: none;
+    color: black;
+}
+.content > div ul li:hover {
+    text-decoration: underline;
+}
+.content img {
+    max-height: 25px;
+}
+#social-content li a {
+    margin: auto 0;
+    display: flex;
+    align-items: center;
+}
+.content > div li:after {
+  content: '';
+  width: 0px;
+  height: 2px;
+  display: block;
+  background: #00ffff;
+  transition: 400ms;
+}
+.content > div li:hover:after {
+  width: 100%;
 }
