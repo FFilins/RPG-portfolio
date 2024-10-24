@@ -1,13 +1,11 @@
-/* BASE */
+/* Battle menu */
  .battle-menu {
     display: grid;
     grid-template-columns: repeat(2, 50px);
     grid-template-rows: repeat(2, 50px);
     position: absolute;
-    top: auto;
     bottom: 90px;
     left: 60px;
-    right: auto;
     transform: rotate(45deg);
 
     animation:  content-appears .5s ease-out;
@@ -136,4 +134,62 @@
 .content p {
     text-wrap: wrap;
     padding: 5px;
+}
+
+/* Status menu */
+.status-menu {
+    position: absolute;
+    right: 0;
+    bottom:  0;
+    width: 200px;
+    height: 270px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: end;
+}
+.menu {
+    border: 1px solid red;
+    height: 50px;
+    width: 150px;
+
+    position: relative;
+    background-color: black;
+
+}
+.menu .name {
+    /* border: 1px solid yellow; */
+    border-top: 2px solid grey;
+    border-left: 2px solid grey;
+    border-radius: 15px 0 0 0;
+    padding: 3px 15px;
+    position: absolute;
+    top: -30px;
+    right: 0;
+    background-color: rgb(57, 86, 148);
+    
+    text-shadow: 
+    -2px -2px 0 #000,  
+    2px -2px 0 #000,   
+    -2px 2px 0 #000,   
+    2px 2px 0 #000,    
+    -3px -3px 0 #000,  
+    3px -3px 0 #000,   
+    -3px 3px 0 #000,   
+    3px 3px 0 #000;  
+}
+.name::before {
+    border-radius: 15px 0 0 0;
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(180deg, rgba(0,0,0,0), #a0a0a04d);
+
+}
+#FFilins {
+    color: #87c42d;
 }
